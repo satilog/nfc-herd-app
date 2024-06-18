@@ -26,7 +26,7 @@ const SignInComponent: NextPage = () => {
     try {
       // const response = await signIn(loginData);
       // console.log('SignIn successful', response);
-      // router.push('/dashboard');
+      router.push("/farms");
     } catch (error) {
       setError("Failed to log in. Please try again.");
       console.error(error);
