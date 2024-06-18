@@ -7,7 +7,8 @@ import { useState } from "react";
 import Layout from "@/containers/Layout";
 
 import { useAppContext } from "@/context/AppContext";
-import Inventory from "@/partials/Farms";
+import CattleList from "@/partials/Farms";
+import Farms from "@/partials/Farms";
 
 const Home: NextPage = (
   {
@@ -15,12 +16,13 @@ const Home: NextPage = (
 ) => {
   return (
     <Layout>
-      <div className="flex flex-col flex-row justify-center items-center w-full">
+      <Farms></Farms>
+      {/* <div className="flex flex-col flex-row justify-center items-center w-full">
         <h2>NFC Herd</h2>
-        <Inventory>
-          <h2>Inventory page</h2>
-        </Inventory>
-      </div>
+        <CattleList>
+          <h2>CattleList page</h2>
+        </CattleList>
+      </div> */}
     </Layout>
   );
 };

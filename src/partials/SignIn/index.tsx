@@ -1,32 +1,54 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
+import { useAppContext } from "@/context/AppContext";
 
 const SignInComponent: NextPage = () => {
   const [signInData, setSignInData] = useState({
-    email: "",
+    email: "robyn10@gmail.com",
     password: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
+  const { setFarmerId } = useAppContext();
   const router = useRouter();
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
     setSignInData({ ...signInData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
 
-    // API call to log the user in
+    console.log('API_URL:', process.env.API_URL);
+
     try {
-      // const response = await signIn(loginData);
-      // console.log('SignIn successful', response);
-      router.push("/farms");
+      const response = await fetch(`${process.env.API_URL}/farmer/${signInData.email.split("@")[0]}`, {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch farmer data");
+      }
+
+      const farmerString = await response.json();
+      const farmer = JSON.parse(farmerString);
+
+      // Assuming the farmer object has an 'id' and 'name' field
+      const farmerId = farmer["_id"];
+      console.log("farmerId: ", farmerId);
+
+      // Update AppContext with the farmerId
+      setFarmerId(farmerId);
+
+      router.push({
+        pathname: "/farms",
+        query: { id: farmerId },
+      });
     } catch (error) {
       setError("Failed to log in. Please try again.");
       console.error(error);

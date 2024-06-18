@@ -1,4 +1,3 @@
-
 import React, {
   createContext,
   useContext,
@@ -9,9 +8,13 @@ import React, {
 } from "react";
 
 type AppContextType = {
+  farmerId: string | null;
+  setFarmerId: Dispatch<SetStateAction<string | null>>;
 };
 
 const defaultState: AppContextType = {
+  farmerId: null,
+  setFarmerId: () => {},
 };
 
 const AppContext = createContext<AppContextType>(defaultState);
@@ -23,10 +26,13 @@ export const AppProvider = ({
 }: {
   children: ReactNode | ReactNode[];
 }) => {
+  const [farmerId, setFarmerId] = useState<string | null>(null);
 
   return (
     <AppContext.Provider
       value={{
+        farmerId,
+        setFarmerId,
       }}
     >
       {children}

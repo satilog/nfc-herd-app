@@ -4,11 +4,13 @@ import { ReactNode } from "react";
 import { useRouter } from "next/router";
 import { useAppContext } from "@/context/AppContext";
 
-export default function Inventory({
-  children,
-}: {
-  children: ReactNode | ReactNode[];
-}) {
+export default function CattleList(
+//   {
+//   children,
+// }: {
+//   children: ReactNode | ReactNode[];
+// }
+) {
   const isScreenHeight = true;
   const router = useRouter();
   
