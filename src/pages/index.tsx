@@ -9,6 +9,7 @@ import Layout from "@/containers/Layout";
 import { useAppContext } from "@/context/AppContext";
 import CattleList from "@/partials/Farms";
 import Farms from "@/partials/Farms";
+import SignIn from "@/partials/SignIn";
 
 const Home: NextPage = (
   {
@@ -16,7 +17,9 @@ const Home: NextPage = (
 ) => {
   return (
     <Layout>
-      <Farms></Farms>
+      {/* <Farms></Farms> */}
+      <SignIn></SignIn>
+
       {/* <div className="flex flex-col flex-row justify-center items-center w-full">
         <h2>NFC Herd</h2>
         <CattleList>
