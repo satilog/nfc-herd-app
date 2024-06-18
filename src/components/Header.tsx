@@ -24,7 +24,15 @@ export default function Header(props: any) {
           className="custom-text-color text-2xl font-bold cursor-pointer"
           onClick={() => router.push("/")}
         >
-          SCAN MY HERD
+          SCAN<span className="font-normal"> MY</span> HERD
+          {/* <Image
+            className="hover:cursor-pointer -ml-6"
+            src="/smh-logo.png"
+            alt="Logo"
+            width={200}
+            height={220}
+            onClick={() => router.push("/")}
+          /> */}
         </div>
 
         {/* Tabs and Sign Up Button Group */}
