@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import { ReactNode } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { ScaleIcon, UserIcon } from "@heroicons/react/24/solid";
+import { ScaleIcon, UserIcon, ArrowLeftIcon } from "@heroicons/react/24/solid";
 import { useAppContext } from "@/context/AppContext";
 
 export default function Inventory({
@@ -36,9 +36,20 @@ export default function Inventory({
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">
-      <h1 className="text-2xl font-semibold mb-6 text-center text-gray-800">
-        Cattle
-      </h1>
+      <div className="relative">
+        <h1 className="text-2xl font-semibold mb-6 text-center text-gray-800 ">
+          Cattle
+        </h1>
+        <div className="absolute top-0 left-5">
+          <button
+            className="bg-orange-600 py-1 px-2 text-white rounded-lg flex hover:bg-orange-500"
+            onClick={() => router.push("/farms")}
+          >
+            <ArrowLeftIcon className="h-6 w-6 mr-2" />
+            <span>Farms</span>
+          </button>
+        </div>
+      </div>
       <div className="flex flex-wrap justify-center gap-6 overflow-x-auto p-4">
         {cows.map((cow) => (
           <div
