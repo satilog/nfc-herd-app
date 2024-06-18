@@ -10,25 +10,17 @@ export default function Inventory({
   children: ReactNode | ReactNode[];
 }) {
   const isScreenHeight = true;
- const router = useRouter();
+  const router = useRouter();
+  
   const cows = [
     {
       animal_id: 1,
       breed: "breed1",
+      dob: "10-10-2021",
       sex: "male",
       weight: "10",
-    },
-    {
-      animal_id: 1,
-      breed: "breed1",
-      sex: "male",
-      weight: "10",
-    },
-    {
-      animal_id: 1,
-      breed: "breed1",
-      sex: "male",
-      weight: "10",
+      owner_info: "somwefo",
+
     },
   ];
 
@@ -49,7 +41,6 @@ export default function Inventory({
           </div>
         ))}
       </div>
-      {children}
     </div>
   );
 }

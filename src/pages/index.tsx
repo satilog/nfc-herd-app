@@ -7,7 +7,7 @@ import { useState } from "react";
 import Layout from "@/containers/Layout";
 
 import { useAppContext } from "@/context/AppContext";
-import Inventory from "@/partials/Inventory";
+import Inventory from "@/partials/Farms";
 
 const Home: NextPage = (
   {

@@ -3,14 +3,14 @@ import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import { useState } from "react";
 import Layout from "@/containers/Layout";
-import SignIn from "@/partials/SignIn";
+import Cow from "@/partials/Cow";
 
 import { NextPage } from "next";
 
 const Home: NextPage = ({}) => {
   return (
     <Layout>
-      <SignIn></SignIn>
+      <Cow></Cow>
     </Layout>
   );
 };
