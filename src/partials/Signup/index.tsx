@@ -5,7 +5,11 @@ import { NextPage } from "next";
 const SignUpComponent: NextPage = () => {
   const [userData, setUserData] = useState({
     email: "",
-    name: "",
+    firstname: "",
+    lastname: "",
+    password: "",
+
+    // ignored
     universityYear: "",
     major: "",
     universityName: "",
@@ -30,7 +34,7 @@ const SignUpComponent: NextPage = () => {
     try {
       // const response = await signUp(userData);
       // console.log('SignUp successful', response);
-      // router.push('/dashboard'); // Navigate to dashboard or home page after successful sign up
+      router.push("/farms"); // Navigate to dashboard or home page after successful sign up
     } catch (error) {
       setError("Failed to sign up. Please try again.");
       console.error(error);
@@ -43,14 +47,7 @@ const SignUpComponent: NextPage = () => {
     <div className="flex flex-col w-full max-w-md mx-auto my-10">
       <form className="space-y-6" onSubmit={handleSubmit}>
         <h2 className="text-2xl font-semibold text-center">Sign Up</h2>
-        {[
-          "email",
-          "name",
-          "universityYear",
-          "major",
-          "universityName",
-          "interests",
-        ].map((field) => (
+        {["email", "first name", "last name", "password"].map((field) => (
           <div key={field}>
             <label
               htmlFor={field}
@@ -59,7 +56,13 @@ const SignUpComponent: NextPage = () => {
               {field.replace(/([A-Z])/g, " $1").trim()}
             </label>
             <input
-              type={field === "email" ? "email" : "text"}
+              type={
+                field === "email"
+                  ? "email"
+                  : field === "password"
+                  ? "password"
+                  : "text"
+              }
               name={field}
               id={field}
               required={field === "email" || field === "name"}
