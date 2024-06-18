@@ -55,9 +55,9 @@ export default function Inventory({
           <div
             key={cow.animal_id}
             onClick={() => router.push(`/cow/${cow.animal_id}`)}
-            className="pb-6 bg-orange-500 text-white shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300 ease-in-out cursor-pointer w-80"
+            className="pb-6 bg-orange-500 text-white shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300 ease-in-out cursor-pointer w-80 hover:scale-105"
           >
-            <div className="mb-4 px-6 pb-6 flex items-center pt-6 bg-orange-400 rounded-t-lg">
+            <div className="mb-4 px-6 pb-6 flex items-center pt-6 bg-orange-400 rounded-t-lg ">
               <Image
                 src="/cow.svg"
                 alt="Cow"
