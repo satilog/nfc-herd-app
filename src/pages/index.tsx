@@ -7,6 +7,7 @@ import { useState } from "react";
 import Layout from "@/containers/Layout";
 
 import { useAppContext } from "@/context/AppContext";
+import Inventory from "@/partials/Inventory";
 
 const Home: NextPage = (
   {
@@ -16,6 +17,9 @@ const Home: NextPage = (
     <Layout>
       <div className="flex flex-col flex-row justify-center items-center w-full">
         <h2>NFC Herd</h2>
+        <Inventory>
+          <h2>Inventory page</h2>
+        </Inventory>
       </div>
     </Layout>
   );
