@@ -24,7 +24,7 @@ export default function Header(props: any) {
           className="custom-text-color text-2xl font-bold cursor-pointer"
           onClick={() => router.push("/")}
         >
-          NFC HERD
+          SCAN MY HERD
         </div>
 
         {/* Tabs and Sign Up Button Group */}
