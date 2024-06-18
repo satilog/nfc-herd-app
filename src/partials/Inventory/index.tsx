@@ -2,6 +2,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ReactNode } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import { ScaleIcon, UserIcon } from "@heroicons/react/24/solid";
 import { useAppContext } from "@/context/AppContext";
 
 export default function Inventory({
@@ -10,46 +12,64 @@ export default function Inventory({
   children: ReactNode | ReactNode[];
 }) {
   const isScreenHeight = true;
- const router = useRouter();
+  const router = useRouter();
   const cows = [
     {
       animal_id: 1,
-      breed: "breed1",
+      breed: "whiBos indicus (Zebu)te",
       sex: "male",
-      weight: "10",
+      weight: "130",
     },
     {
-      animal_id: 1,
-      breed: "breed1",
-      sex: "male",
-      weight: "10",
+      animal_id: 2,
+      breed: "Bos taurus (Taurine)",
+      sex: "female",
+      weight: "104",
     },
     {
-      animal_id: 1,
-      breed: "breed1",
+      animal_id: 3,
+      breed: "Hybrid",
       sex: "male",
-      weight: "10",
+      weight: "166",
     },
   ];
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">
-      <h1 className="text-4xl font-bold mb-6">Dashboard</h1>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <h1 className="text-2xl font-semibold mb-6 text-center text-gray-800">
+        Cattle
+      </h1>
+      <div className="flex flex-wrap justify-center gap-6 overflow-x-auto p-4">
         {cows.map((cow) => (
           <div
             key={cow.animal_id}
-            onClick={() => router.push("/{cow.id}")}
-            className="p-6 bg-white shadow-lg rounded-lg"
+            onClick={() => router.push(`/cow/${cow.animal_id}`)}
+            className="p-6 bg-orange-500 text-white shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300 ease-in-out cursor-pointer w-80"
           >
-            <h2 className="text-2xl font-semibold mb-2">{cow.animal_id}</h2>
-            <h3 className="text-lg text-gray-700 mb-1">{cow.breed}</h3>
-            <h3 className="text-lg text-gray-700">{cow.sex}</h3>
-            <h3 className="text-lg text-gray-700">{cow.weight}</h3>
+            <div className="mb-4 flex items-center">
+              <Image
+                src="/cow.svg"
+                alt="Cow"
+                width={24}
+                height={24}
+                className="mr-2"
+                style={{ filter: "invert(1)" }}
+              />
+              <span className="text-md">
+                {cow.animal_id} {cow.breed}
+              </span>
+            </div>
+            <div className="text-md mb-2 flex items-center">
+              <UserIcon className="h-5 w-5 text-gray-200 mr-2" />
+              <span>{cow.sex}</span>
+            </div>
+            <div className="text-md flex items-center">
+              <ScaleIcon className="h-5 w-5 text-gray-200 mr-2" />
+              <span>{cow.weight}</span>
+            </div>
           </div>
         ))}
       </div>
-      {children}
     </div>
   );
 }
