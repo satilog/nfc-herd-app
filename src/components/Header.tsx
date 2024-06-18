@@ -41,7 +41,7 @@ export default function Header(props: HeaderProps) {
           className="custom-text-color text-2xl font-bold"
           onClick={() => router.push(`/`)}
         >
-          STORE NAV
+          NFC HERD
           {/* <Image
             className="hover:cursor-pointer"
             src="/LankaWikiLogoShort.png"
